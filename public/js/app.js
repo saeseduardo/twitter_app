@@ -37345,6 +37345,15 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+var mensaje = document.getElementById('message');
+var contador = document.getElementById('contador');
+mensaje.addEventListener('input', function (e) {
+  var target = e.target;
+  var longitudMax = target.getAttribute('maxlength');
+  var longitudAct = target.value.length;
+  contador.innerHTML = "".concat(longitudAct, "/").concat(longitudMax);
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
