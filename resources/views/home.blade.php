@@ -27,9 +27,12 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <div id="contador" style="float: right;">0/250</div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
                     </form>
                     <hr>
                     @foreach($tweets as $tweet)
