@@ -35,13 +35,14 @@
                     @foreach($tweets as $tweet)
                         <div class="card">
                             <div class="card-body">
-                                <div class="col-md-2">
+                                <div class="row">
                                     <div class="col-md-2">
                                         <img src="{{ asset('img/user-default.jpeg') }}" alt="" class="img-thumbnail rounded float-start">
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <p>{{ $tweet }}</p>
+                                    <div class="col-md-8">
+                                        <p><b>{{ $tweet->user->name }}</b> <samp>@</samp>{{ $tweet->user->username }} - {{ $tweet->created_at->diffForHumans(now()) }}</p>
+                                        <p class="text-justify">{{ $tweet->message }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

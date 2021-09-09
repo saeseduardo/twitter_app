@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tweets = Tweet::with('users')->orderBy('created_at', 'DESC')->get();
+        $tweets = Tweet::with('user')->orderBy('created_at', 'DESC')->get();
         return view('home', compact('tweets'));
     }
 
