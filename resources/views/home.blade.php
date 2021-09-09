@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Inicio') }}</div>
+                <div class="card-header bg-primary">{{ __('Inicio') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -36,7 +36,7 @@
                     </form>
                     <hr>
                     @foreach($tweets as $tweet)
-                        <div class="card">
+                        <div class="card card-hover mb-1">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-2">
