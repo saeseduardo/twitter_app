@@ -22,8 +22,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tweet()
+    public function tweets()
     {
-        return $this->belongsTo(Tweet::class);
+        return $this->hasMany(Tweet::class);
     }
 }

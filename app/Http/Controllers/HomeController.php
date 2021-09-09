@@ -27,4 +27,13 @@ class HomeController extends Controller
         $tweets = Tweet::with('users')->orderBy('created_at', 'DESC')->get();
         return view('home', compact('tweets'));
     }
+
+    public function createTweet(Request $request)
+    {
+        Tweet::create([
+            'user_id' => Auth()->user()->id,
+            'message' => $request->message
+        ]);
+        return redirect()->to('/home');
+    }
 }
