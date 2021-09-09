@@ -29,6 +29,14 @@
                             </div>
                         </div>
                     </form>
+                    <hr>
+                    @foreach($tweets as $tweet)
+                        <div class="card">
+                            <div class="card-body">
+                                {{ $tweet }} - This is some text within a card body.
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
