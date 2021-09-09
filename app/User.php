@@ -36,4 +36,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tweet::class);
     }
+
+    public function userLogins()
+    {
+        return $this->hasMany(UserLogin::class);
+    }
 }
