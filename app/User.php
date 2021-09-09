@@ -22,8 +22,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getNameAttribute($value): string
+    {
+        return ucwords($value);
+    }
+
+    public function setNameAttribute($value): string
+    {
+        return strtolower($value);
+    }
+
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
+    }
+
+    public function userLogins()
+    {
+        return $this->hasMany(UserLogin::class);
     }
 }
