@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Inicio') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,40 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <form method="post">
+                        @csrf
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                <img src="{{ asset('img/user-default.jpeg') }}" alt="" class="img-thumbnail rounded float-start">
+                            </div>
+                            <div class="col-md-10">
+                                <textarea name="message" id="message" cols="30" rows="3" maxlength="250" required class="form-control @error('message') is-invalid @enderror"></textarea>
 
-                    {{ __('You are logged in!') }}
+                                @error('message')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                    <hr>
+                    @foreach($tweets as $tweet)
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="{{ asset('img/user-default.jpeg') }}" alt="" class="img-thumbnail rounded float-start">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p><b>{{ $tweet->user->name }}</b> <samp>@</samp>{{ $tweet->user->username }} - {{ $tweet->created_at->diffForHumans(now()) }}</p>
+                                        <p class="text-justify">{{ $tweet->message }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
